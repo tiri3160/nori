@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>نوري — Nori</title>
+<style>
+@font-face{font-family:'Baloo Bhaijaan 2';font-style:normal;font-weight:500;font-display:swap;src:url(font/baloo-arabic.woff2) format('woff2');unicode-range:U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;}
+@font-face{font-family:'Baloo Bhaijaan 2';font-style:normal;font-weight:500;font-display:swap;src:url(font/baloo-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Baloo Bhaijaan 2';font-style:normal;font-weight:500;font-display:swap;src:url(font/baloo-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Baloo Bhaijaan 2';font-style:normal;font-weight:700;font-display:swap;src:url(font/baloo-arabic.woff2) format('woff2');unicode-range:U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;}
+@font-face{font-family:'Baloo Bhaijaan 2';font-style:normal;font-weight:700;font-display:swap;src:url(font/baloo-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Baloo Bhaijaan 2';font-style:normal;font-weight:700;font-display:swap;src:url(font/baloo-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Baloo Bhaijaan 2';font-style:normal;font-weight:800;font-display:swap;src:url(font/baloo-arabic.woff2) format('woff2');unicode-range:U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;}
+@font-face{font-family:'Baloo Bhaijaan 2';font-style:normal;font-weight:800;font-display:swap;src:url(font/baloo-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Baloo Bhaijaan 2';font-style:normal;font-weight:800;font-display:swap;src:url(font/baloo-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+
+:root{
+  --gold:#ffd25e; --gold2:#ffb238; --ink:#1b1440; --night:#0d0b2a; --glass:rgba(16,12,48,.62);
+  --font:'Baloo Bhaijaan 2', system-ui, -apple-system, 'Segoe UI', Tahoma, sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--night);color:#fff;font-family:var(--font);overflow:hidden;user-select:none;-webkit-user-select:none}
+button{font-family:inherit;cursor:pointer;border:0}
+img,video,canvas{-webkit-user-drag:none;user-drag:none;-webkit-touch-callout:none}
+.bg,.nori img,#pop3d img,.vignette{pointer-events:none}
+body{-webkit-touch-callout:none;touch-action:manipulation}
+.hidden{display:none!important}
+
+/* ---------- screens ---------- */
+.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#setup{background:radial-gradient(ellipse at 50% 30%,#2b2470 0%,#0d0b2a 70%);overflow:auto;padding:20px}
+.card{width:min(460px,100%);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:28px;padding:22px 22px 26px;backdrop-filter:blur(8px);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.card h1{margin:4px 0 2px;font-size:30px;line-height:1.15;color:var(--gold)}
+.card p.sub{margin:0 0 14px;opacity:.85;font-size:15px}
+.card .nori-hero{width:150px;height:150px;margin:-4px auto 2px;display:block;filter:drop-shadow(0 0 18px rgba(255,210,94,.6));animation:float 4s ease-in-out infinite}
+.field{margin:12px 0;text-align:start}
+.field label{display:block;font-size:14px;opacity:.85;margin:0 4px 6px}
+.field input{width:100%;font:inherit;font-size:20px;padding:12px 16px;border-radius:16px;border:2px solid rgba(255,255,255,.18);background:rgba(0,0,0,.25);color:#fff;outline:none;text-align:center}
+.field input:focus{border-color:var(--gold)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{flex:1;min-width:80px;padding:11px 8px;border-radius:14px;background:rgba(255,255,255,.08);color:#fff;font-size:17px;border:2px solid transparent}
+.seg button.on{background:rgba(255,210,94,.18);border-color:var(--gold);color:var(--gold)}
+.big{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding:14px 34px;border-radius:999px;font-size:22px;font-weight:800;color:var(--ink);background:linear-gradient(180deg,#ffe58a,#ffb238);box-shadow:0 8px 24px rgba(255,178,56,.45),inset 0 -3px 0 rgba(0,0,0,.12)}
+.big:active{transform:scale(.96)}
+.small-note{font-size:12px;opacity:.6;margin-top:12px}
+.brand{display:inline-flex;align-items:center;gap:8px;padding:5px 14px 5px 12px;border-radius:999px;border:1px solid rgba(255,210,94,.45);background:rgba(255,210,94,.08);direction:ltr}
+.brand-mark{color:var(--gold);font-size:14px;text-shadow:0 0 8px var(--gold)}
+.brand-name{font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;letter-spacing:.22em;font-size:13px;color:#fff}
+.brand-pres{font-size:12px;opacity:.7;letter-spacing:.02em}
+.brand-foot{position:absolute;bottom:2px;inset-inline-start:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.25em;font-weight:800;opacity:.55;direction:ltr;white-space:nowrap;pointer-events:none}
+[dir=rtl] .brand-foot{transform:translateX(50%)}
+.brand-corner{position:absolute;top:max(66px,calc(env(safe-area-inset-top) + 58px));inset-inline-end:14px;z-index:9;font-size:10px;letter-spacing:.28em;font-weight:800;opacity:.45;direction:ltr;pointer-events:none;text-shadow:0 1px 4px #000}
+
+/* ---------- book ---------- */
+#book{background:#000}
+#stage{position:absolute;inset:0;overflow:hidden}
+.bg{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;transition:opacity .9s ease,transform .3s ease-out;will-change:transform}
+.bg.out{opacity:0}
+#fx{position:absolute;inset:0;pointer-events:none}
+#layer{position:absolute;inset:0}
+.vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 45%,rgba(5,3,20,.55) 100%)}
+
+/* Nori sprite: black background disappears with screen blending */
+.nori{position:absolute;left:50%;top:44%;width:min(34vmin,260px);aspect-ratio:1;transform:translate(-50%,-50%);transition:filter .8s ease,left 1.2s cubic-bezier(.5,0,.3,1),top 1.2s cubic-bezier(.5,0,.3,1),width .8s ease;cursor:pointer;z-index:3}
+.nori img{width:100%;height:100%;display:block;animation:float 4s ease-in-out infinite;pointer-events:none}
+.nori.shake img{animation:shake .5s ease-in-out}
+.nori.spin img{animation:spin3 1s ease-in-out}
+.nori.jump img{animation:jump .7s ease-out}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-4%) rotate(2deg)}}
+@keyframes shake{0%,100%{transform:rotate(0)}20%{transform:rotate(-10deg)}40%{transform:rotate(9deg)}60%{transform:rotate(-6deg)}80%{transform:rotate(4deg)}}
+@keyframes spin3{0%{transform:rotateY(0)}100%{transform:rotateY(360deg)}}
+@keyframes jump{0%{transform:translateY(0) scale(1)}35%{transform:translateY(-22%) scale(1.08,.95)}70%{transform:translateY(0) scale(.96,1.04)}100%{transform:translateY(0)}}
+
+/* top bar */
+#top{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;gap:8px;padding:max(10px,env(safe-area-inset-top)) 12px 8px;z-index:10;pointer-events:none}
+#top>*{pointer-events:auto}
+.ibtn{width:46px;height:46px;border-radius:50%;background:var(--glass);color:#fff;font-size:21px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(6px)}
+.ibtn.on{background:rgba(255,210,94,.25);border-color:var(--gold)}
+.ibtn:active{transform:scale(.92)}
+#meter{flex:1;max-width:280px;margin-inline:auto;height:22px;border-radius:999px;background:var(--glass);border:1px solid rgba(255,255,255,.15);position:relative;overflow:hidden;transition:opacity .5s}
+#meterFill{position:absolute;inset-block:0;inset-inline-start:0;width:10%;background:linear-gradient(90deg,#ffb238,#ffe58a);box-shadow:0 0 18px #ffd25e;transition:width 1.2s ease}
+#meter span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;text-shadow:0 1px 3px #000}
+
+/* text panel */
+#panel{position:absolute;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(760px,calc(100% - 24px));background:var(--glass);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:14px 18px 12px;backdrop-filter:blur(10px);z-index:10;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+#txt{font-size:clamp(19px,2.6vw + 8px,28px);line-height:1.55;font-weight:700;min-height:2.6em;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+#txt .w{transition:color .2s}
+#txt .w.hl{color:var(--gold)}
+#txt2{font-size:clamp(14px,1.6vw + 6px,18px);line-height:1.45;opacity:.8;margin-top:6px;border-top:1px dashed rgba(255,255,255,.2);padding-top:6px}
+#hint{margin-top:8px;font-size:14px;color:var(--gold);display:flex;align-items:center;gap:6px;justify-content:center}
+#hint:empty{display:none}
+#nav{display:flex;align-items:center;justify-content:space-between;margin-top:8px;gap:8px}
+#dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
+#dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25)}
+#dots i.on{background:var(--gold);box-shadow:0 0 8px var(--gold)}
+.navbtn{width:52px;height:52px;border-radius:50%;background:linear-gradient(180deg,#ffe58a,#ffb238);color:var(--ink);font-size:26px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(255,178,56,.4)}
+.navbtn:disabled{opacity:.3;box-shadow:none}
+.navbtn.pulse{animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,210,94,.7)}50%{box-shadow:0 0 0 12px rgba(255,210,94,0)}}
+
+/* interactive bits */
+.tapme{position:absolute;z-index:4;cursor:pointer}
+.sparkle{position:absolute;width:10px;height:10px;pointer-events:none;z-index:6}
+.sparkle::before{content:'';position:absolute;inset:-14px;background:radial-gradient(circle,#fff 0 8%,#ffe58a 14%,transparent 60%);border-radius:50%;animation:spark .9s ease-out forwards}
+@keyframes spark{0%{transform:scale(.2);opacity:1}100%{transform:scale(2.2);opacity:0}}
+.heart{position:absolute;font-size:28px;pointer-events:none;z-index:6;animation:rise 1.6s ease-out forwards}
+@keyframes rise{0%{transform:translateY(0) scale(.6);opacity:1}100%{transform:translateY(-140px) scale(1.2);opacity:0}}
+.bubble{position:absolute;z-index:7;background:#fff;color:var(--ink);font-weight:800;padding:6px 14px;border-radius:18px;font-size:18px;white-space:nowrap;transform:translate(-50%,-120%);box-shadow:0 6px 18px rgba(0,0,0,.35);animation:pop .4s ease-out}
+@keyframes pop{0%{transform:translate(-50%,-100%) scale(.4)}100%{transform:translate(-50%,-120%) scale(1)}}
+
+.shadowmon{position:absolute;width:24vmin;height:28vmin;z-index:4;cursor:pointer;transition:opacity .8s,transform .8s}
+.shadowmon svg{width:100%;height:100%;filter:drop-shadow(0 0 12px rgba(0,0,0,.8))}
+.shadowmon.revealed{transform:scale(.85)}
+.shadowmon .mon{transition:opacity .6s}
+.shadowmon .real{opacity:0;transition:opacity .6s .2s}
+.shadowmon.revealed .mon{opacity:0}
+.shadowmon.revealed .real{opacity:1}
+
+.breath{position:absolute;left:50%;top:50%;width:min(44vmin,300px);aspect-ratio:1;transform:translate(-50%,-62%);border-radius:50%;z-index:5;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;touch-action:none}
+.breath .ring{position:absolute;inset:0;border-radius:50%;border:3px solid rgba(255,210,94,.7);background:radial-gradient(circle,rgba(255,210,94,.25),rgba(255,210,94,.02) 70%);transform:scale(.55);transition:transform 3s ease-in-out}
+.breath.in .ring{transform:scale(1)}
+.breath b{position:relative;font-size:22px;text-shadow:0 2px 6px #000}
+.breath small{position:relative;opacity:.85}
+.steps{position:absolute;left:50%;top:14%;transform:translateX(-50%);display:flex;gap:10px;z-index:5}
+.steps i{width:22px;height:22px;border-radius:50%;border:2px solid var(--gold);display:block}
+.steps i.on{background:var(--gold);box-shadow:0 0 12px var(--gold)}
+
+.brave{position:absolute;left:50%;top:22%;transform:translateX(-50%);z-index:5;padding:14px 26px;border-radius:22px;background:rgba(255,255,255,.92);color:var(--ink);font-size:clamp(22px,4vw,34px);font-weight:800;box-shadow:0 0 0 0 rgba(255,210,94,.8);animation:pulse 1.6s infinite}
+.brave:active{transform:translateX(-50%) scale(.95)}
+
+.catchstar{position:absolute;width:64px;height:64px;z-index:6;cursor:pointer;transition:left 1.4s ease-in-out,top 1.4s ease-in-out}
+.catchstar svg{width:100%;height:100%;filter:drop-shadow(0 0 12px #ffd25e);animation:twinkle 1s ease-in-out infinite}
+@keyframes twinkle{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.15) rotate(15deg)}}
+
+.streak{position:absolute;width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 18px 8px #ffe58a;z-index:5;pointer-events:none}
+
+/* 3D pop */
+#pop3d{position:absolute;left:50%;top:44%;width:min(46vmin,340px);aspect-ratio:1;transform:translate(-50%,-50%);perspective:900px;z-index:5;cursor:grab;touch-action:none}
+#pop3d .rig{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .08s linear}
+#pop3d .lyr{position:absolute;inset:0;backface-visibility:visible}
+#pop3d .lyr img{width:100%;height:100%}
+#pop3d .glow{position:absolute;inset:-30%;border-radius:50%;background:radial-gradient(circle,rgba(255,210,94,.55),rgba(255,210,94,0) 60%);transform:translateZ(-60px);animation:breathe 3s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.6;transform:translateZ(-60px) scale(.9)}50%{opacity:1;transform:translateZ(-60px) scale(1.1)}}
+.rot-hint{position:absolute;left:50%;top:78%;transform:translateX(-50%);z-index:5;font-size:15px;background:var(--glass);padding:6px 14px;border-radius:999px}
+
+/* room photo */
+#roomPhoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.photoBtn{position:absolute;left:50%;top:16%;transform:translateX(-50%);z-index:6;padding:12px 22px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);font-weight:800;font-size:18px;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+
+/* overlays (hologram, certificate, parents, settings) */
+.overlay{position:fixed;inset:0;z-index:50;background:rgba(5,3,20,.92);display:flex;align-items:center;justify-content:center;padding:18px;overflow:auto}
+.overlay .card{max-height:100%;overflow:auto}
+.closeX{position:fixed;top:max(12px,env(safe-area-inset-top));inset-inline-end:12px;z-index:60}
+#holo{background:#000;padding:0}
+#holoCanvas{width:100vmin;height:100vmin;display:block}
+.holo-ui{position:fixed;bottom:12px;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:55}
+#certImg{width:100%;border-radius:14px;display:block;margin:10px 0}
+.qlist{text-align:start;line-height:1.7;font-size:17px}
+.qlist li{margin:6px 0}
+.tpl{background:#fff;border-radius:14px;padding:10px;margin:10px 0}
+.tpl svg{width:100%;height:auto;display:block}
+.lang-pick{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+
+
+/* ---------- print / PDF ---------- */
+#print{display:none}
+@media print{
+  @page{size:A4 landscape;margin:0}
+  html,body{height:auto!important;overflow:visible!important;background:#0d0b2a!important}
+  body>*:not(#print){display:none!important}
+  #print{display:block}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.pp{width:297mm;height:210mm;position:relative;overflow:hidden;background:#0d0b2a;color:#fff;page-break-after:always;break-after:page;font-family:var(--font)}
+.pp:last-child{page-break-after:auto;break-after:auto}
+.pp .pimg{position:absolute;left:0;top:0;width:100%;height:152mm;object-fit:cover}
+.pp .pnori{position:absolute}
+.pp .ptxt{position:absolute;left:0;right:0;bottom:0;height:58mm;padding:7mm 16mm 0;background:linear-gradient(180deg,#151046,#0d0b2a);font-size:17pt;line-height:1.5;font-weight:700}
+.pp .ptxt::before{content:'';position:absolute;left:0;right:0;top:-14mm;height:14mm;background:linear-gradient(180deg,transparent,#151046)}
+.pp .pnum{position:absolute;bottom:5mm;inset-inline-end:10mm;font-size:10pt;opacity:.6}
+.pp .pbrand{position:absolute;bottom:5mm;inset-inline-start:10mm;font-size:8.5pt;letter-spacing:.3em;font-weight:800;opacity:.6;direction:ltr}
+.pp .ptxt2{font-size:11.5pt;font-weight:500;opacity:.75;margin-top:3mm}
+.pcover{display:flex}
+.pcover .cimg{width:50%;height:100%;object-fit:cover}
+.pcover .cside{width:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:16mm;background:radial-gradient(ellipse at 50% 30%,#2b2470,#0d0b2a 75%)}
+.pcover h1{font-size:34pt;line-height:1.15;color:#ffd25e;margin:6mm 0 3mm}
+.pcover .csub{font-size:14pt;opacity:.85}
+.pcover .cowner{margin-top:14mm;font-size:13pt;opacity:.9;border-bottom:1px dashed rgba(255,255,255,.5);padding:0 10mm 2mm}
+.pbadge{display:inline-block;border:1px solid rgba(255,210,94,.6);border-radius:99px;padding:2mm 6mm;letter-spacing:.35em;font-weight:800;font-size:11pt;direction:ltr}
+.pend{display:flex;gap:10mm;padding:14mm 16mm;align-items:center}
+.pend .col{flex:1}
+.pend h2{color:#ffd25e;font-size:22pt;margin:0 0 4mm}
+.pend ol{font-size:13pt;line-height:1.7;padding-inline-start:7mm}
+.pend img{width:100%;border-radius:4mm}
+.pcover .csub2{margin-top:6mm;font-size:13pt;line-height:1.6;color:#ffe7a8;opacity:.9}
+#print.tri .pp .pimg{height:132mm}
+#print.tri .pp .ptxt{height:78mm;padding-top:5mm;font-size:14.5pt;line-height:1.45}
+#print.tri .pp .ptxt2{font-size:10pt;line-height:1.4;margin-top:2mm}
+.plang{position:absolute;top:5mm;inset-inline-end:6mm;z-index:3;display:inline-flex;align-items:center;gap:2mm;padding:2mm 4mm;border-radius:99px;background:rgba(13,11,42,.72);border:1px solid rgba(255,210,94,.6);color:#fff!important;text-decoration:none;font-size:10pt;font-weight:700;direction:ltr}
+.pmenu{display:flex}
+.pmenu .cimg{width:44%;height:100%;object-fit:cover}
+.pmenu .mside{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:12mm;background:radial-gradient(ellipse at 50% 30%,#2b2470,#0d0b2a 75%)}
+.pmenu h1{font-size:26pt;color:#ffd25e;margin:5mm 0 1mm;line-height:1.2}
+.pmenu .t2{font-size:13pt;color:#ffe7a8;line-height:1.5}
+.pmenu .pick{margin-top:9mm;font-size:12pt;opacity:.85}
+.pmenu .lbtns{display:flex;flex-direction:column;gap:4mm;margin-top:4mm;width:70%}
+.pmenu .lbtns a{display:block;padding:4mm 6mm;border-radius:99px;background:linear-gradient(180deg,#ffe58a,#ffb238);color:#1b1440!important;text-decoration:none;font-size:17pt;font-weight:800}
+.pmenu .foot{margin-top:9mm;font-size:9pt;opacity:.6}
+.pmenu .live{display:flex;flex-direction:column;align-items:center;gap:1mm;margin-top:8mm;width:82%;padding:5mm 6mm;border-radius:6mm;background:linear-gradient(180deg,#ffe58a,#ffb238);color:#1b1440!important;text-decoration:none;box-shadow:0 0 10mm rgba(255,210,94,.45)}
+.pmenu .live .lt{font-size:20pt;font-weight:800}
+.pmenu .live .ls{font-size:10.5pt;font-weight:700;opacity:.8}
+.pmenu .live .lh{font-size:10pt;font-weight:600;opacity:.75}
+.pmenu .lbtns.row{flex-direction:row;width:82%}
+.pmenu .lbtns.row a{flex:1;font-size:14pt;padding:3mm 2mm;background:rgba(255,255,255,.12);color:#fff!important;border:1px solid rgba(255,210,94,.6)}
+
+.endgrid{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);display:grid;grid-template-columns:1fr 1fr;gap:10px;z-index:6;width:min(560px,calc(100% - 28px))}
+.endbtn{margin:0!important;font-size:clamp(14px,1.4vw + 9px,18px)!important;padding:11px 10px!important;line-height:1.2;white-space:normal}
+.endbtn:last-child{grid-column:1/-1;justify-self:center;padding-inline:28px!important;background:rgba(255,255,255,.14)!important;color:#fff!important;box-shadow:none!important}
+#vidOv{position:fixed;inset:0;z-index:40;background:#000;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .6s}
+#vidOv.show{opacity:1}
+#vidOv video{width:100%;height:100%;object-fit:cover}
+#vidSkip{position:fixed;bottom:max(16px,env(safe-area-inset-bottom));inset-inline-end:16px;z-index:41}
+.vbrand{position:fixed;top:max(14px,env(safe-area-inset-top));inset-inline-end:16px;z-index:41;font-size:11px;letter-spacing:.3em;font-weight:800;opacity:.6;direction:ltr;text-shadow:0 1px 4px #000}
+.modeRow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.big.alt{background:rgba(255,255,255,.12);color:#fff;box-shadow:none;border:2px solid rgba(255,210,94,.6)}
+/* lite mode */
+body.lite .nori img,body.lite .card .nori-hero{animation:none}
+body.lite #pop3d .glow{animation:none}
+body.lite .bg{transition:none}
+@media (prefers-reduced-motion:reduce){.nori img{animation:none}}
+@media (max-aspect-ratio:3/4){ .nori{top:38%} #pop3d{top:38%} }
+</style>
+</head>
+<body>
+
+<!-- ================= SETUP ================= -->
+<section id="setup" class="screen">
+  <div class="card">
+    <div class="brand"><span class="brand-mark">✦</span><span class="brand-name">MED TITI</span><span class="brand-pres" id="sPres"></span></div>
+    <img class="nori-hero" src="img/nori-happy.webp" alt="">
+    <h1 id="sTitle">نوري</h1>
+    <p class="sub" id="sSub"></p>
+
+    <div class="field">
+      <label id="lLang"></label>
+      <div class="seg" id="langSeg">
+        <button data-l="ar">العربية</button><button data-l="en">English</button><button data-l="fr">Français</button>
+      </div>
+    </div>
+    <div class="field">
+      <label id="lName" for="nameIn"></label>
+      <input id="nameIn" maxlength="18" autocomplete="off">
+    </div>
+    <div class="field">
+      <label id="lGender"></label>
+      <div class="seg" id="genSeg"><button data-g="m"></button><button data-g="f"></button></div>
+    </div>
+    <div class="field">
+      <label id="lBi"></label>
+      <div class="seg" id="biSeg">
+        <button data-b="">—</button><button data-b="ar">العربية</button><button data-b="en">English</button><button data-b="fr">Français</button>
+      </div>
+    </div>
+    <div class="modeRow"><button class="big" id="startBtn"></button><button class="big alt" id="watchBtn"></button></div>
+    <div class="small-note" id="sNote"></div>
+  </div>
+</section>
+
+<!-- ================= BOOK ================= -->
+<section id="book" class="screen hidden">
+  <div id="stage">
+    <img class="bg" id="bgA" alt="">
+    <img class="bg out" id="bgB" alt="">
+    <div class="vignette"></div>
+    <canvas id="fx"></canvas>
+    <div id="layer"></div>
+    <div class="brand-corner">✦ MED TITI</div>
+  </div>
+
+  <div id="top">
+    <button class="ibtn" id="homeBtn" title="home">⌂</button>
+    <button class="ibtn on" id="readBtn" title="read">🔊</button>
+    <div id="meter"><div id="meterFill"></div><span id="meterTxt"></span></div>
+    <button class="ibtn" id="langBtn" title="language">🌐</button>
+    <button class="ibtn" id="liteBtn" title="lite">⚡</button>
+  </div>
+
+  <div id="panel">
+    <div id="txt"></div>
+    <div id="txt2" class="hidden"></div>
+    <div id="hint"></div>
+    <div id="nav">
+      <button class="navbtn" id="prevBtn">‹</button>
+      <div id="dots"></div>
+      <button class="navbtn" id="nextBtn">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- hologram -->
+<section id="holo" class="overlay hidden">
+  <canvas id="holoCanvas"></canvas>
+  <button class="ibtn closeX" data-close="holo">✕</button>
+  <div class="holo-ui"><button class="ibtn" id="holoHow">?</button></div>
+</section>
+<section id="holoHelp" class="overlay hidden">
+  <button class="ibtn closeX" data-close="holoHelp">✕</button>
+  <div class="card">
+    <h1 id="hhT"></h1>
+    <div class="tpl" id="tplBox"></div>
+    <ol class="qlist" id="hhSteps"></ol>
+  </div>
+</section>
+<!-- certificate -->
+<section id="cert" class="overlay hidden">
+  <button class="ibtn closeX" data-close="cert">✕</button>
+  <div class="card">
+    <h1 id="cT"></h1>
+    <img id="certImg" alt="">
+    <p class="sub" id="cNote"></p>
+  </div>
+</section>
+<!-- parents -->
+<section id="parents" class="overlay hidden">
+  <button class="ibtn closeX" data-close="parents">✕</button>
+  <div class="card">
+    <h1 id="pT"></h1>
+    <p class="sub" id="pSub"></p>
+    <ol class="qlist" id="pQ"></ol>
+    <button class="big" id="pCert"></button>
+  </div>
+</section>
+<!-- language switch -->
+<section id="langOv" class="overlay hidden">
+  <button class="ibtn closeX" data-close="langOv">✕</button>
+  <div class="card">
+    <h1 id="loT">🌐</h1>
+    <div class="field"><label id="loL1"></label><div class="seg" id="loSeg1"><button data-l="ar">العربية</button><button data-l="en">English</button><button data-l="fr">Français</button></div></div>
+    <div class="field"><label id="loL2"></label><div class="seg" id="loSeg2"><button data-b="">—</button><button data-b="ar">العربية</button><button data-b="en">English</button><button data-b="fr">Français</button></div></div>
+  </div>
+</section>
+
+<div id="print" aria-hidden="true"></div>
+<section id="vidOv" class="hidden"><video id="vidEl" playsinline preload="auto"></video><button class="ibtn" id="vidSkip">⏭</button><div class="vbrand">✦ MED TITI</div></section>
+
+<audio id="narr" preload="auto"></audio>
+<input type="file" id="roomFile" accept="image/*" capture="environment" class="hidden">
+
+<script>
+"use strict";
+/* =========================================================
+   CONTENT
+   {N} = child's name, {male|female} = gender variants
+   ========================================================= */
+const IMG = {
+  room:'img/bg-window.webp', fall:'img/bg-fall.webp', tree:'img/bg-tree.webp', path:'img/bg-path.webp',
+  sky:'img/bg-sky.webp', hill:'img/bg-hill.webp', top:'img/bg-top.webp', bedroom:'img/bg-bedroom.webp',
+  happy:'img/nori-happy.webp', scared:'img/nori-scared.webp', bright:'img/nori-bright.webp', laugh:'img/nori-laugh.webp'
+};
+
+const UI = {
+  ar:{dir:'rtl', title:'{N} والنجمة نوري', appTitle:'نوري', sub:'قصة تفاعلية عن الشجاعة', subPrint:'قصة مصوّرة عن الشجاعة', lang:'لغة القصة', name:'اسم البطل أو البطلة', namePh:'اكتب الاسم', gender:'البطل', boy:'ولد', girl:'بنت', bi:'لغة ثانية تحت النص (اختياري)', start:'✋ العب', watch:'▶ شاهد', note:'كتاب تعليمي مجاني · يعمل دون إنترنت على الهاتف والحاسوب · © Med Titi', pres:'تقدّم', light:'ضوء نوري', defName:'صديقي',
+    hints:{tap:'المس الشاشة', tapNori:'المس نوري', meter:'هذا ضوء نوري… ضعيف جدًا', hand:'المس نوري لتمسك يدها', shadows:'المس كل ظل لتكتشف حقيقته', rotate:'أدِر نوري بإصبعك، والمسها لتضحك', breath:'المس الدائرة وتنفّس معها ثلاث مرات', brave:'المس الجملة وقُلها بصوت عالٍ', room:'المس نوري وهي تطير في غرفتك!', catchS:'التقط نجمة الشجاعة!', end:'النهاية'},
+    printBtn:'📄 نسخة للطباعة / PDF', photo:'📷 ضع نوري في غرفتك الحقيقية', holoBtn:'✨ نوري هولوغرام', certBtn:'🏅 شهادة الشجاعة', parentsBtn:'👨‍👩‍👧 صفحة الأهل', again:'↺ من البداية',
+    brave:'أنا {شجاع|شجاعة}! أنا أستطيع!', reveal:['قطة!','شجرة!','معطف!'], wow:'رائع!', thanks:'شكرًا!', caught:'هي لك الآن!',
+    holoT:'هولوغرام نوري', holoSteps:['اطبع القالب، أو ارسمه على بلاستيك شفاف (غطاء علبة أو غلاف سي دي).','قصّ 4 قطع بالمقاسات نفسها، والصقها بشريط لاصق لتصنع هرمًا مقلوبًا.','ضع الهاتف مسطحًا، والهرم في وسط الشاشة والجزء الصغير إلى الأسفل.','أطفئ الأضواء، وانظر من الجانب… نوري تطفو في الهواء!'],
+    certT:'شهادة الشجاعة', certLine:'تُمنح لـ', certWhy:'{لأنه أعاد|لأنها أعادت} الضوء إلى نوري', certSign:'توقيع: نوري ⭐', certNote:'على الهاتف: اضغط مطولًا على الصورة لحفظها.',
+    pT:'صفحة الأهل', pSub:'حوّلوا القصة إلى حديث صغير قبل النوم:', pQ:['ممّ خافت نوري؟ وممّ تخاف أنت أحيانًا؟','ما الأشياء الثلاثة التي أعادت ضوء نوري؟ (ننظر جيدًا، نتنفس ببطء، نقول كلمات شجاعة)','ما جملتك الشجاعة الخاصة التي تقولها عندما تخاف؟'],
+    l1:'لغة القصة', l2:'لغة ثانية', voiceMissing:'لا يوجد صوت عربي على هذا الجهاز، فالقراءة الصوتية غير متاحة.'},
+  en:{dir:'ltr', title:'{N} and Nori the Little Star', appTitle:'Nori', sub:'An interactive story about courage', subPrint:'An illustrated story about courage', lang:'Story language', name:"Hero's name", namePh:'Type the name', gender:'The hero is a', boy:'Boy', girl:'Girl', bi:'Second language under the text (optional)', start:'✋ Play', watch:'▶ Watch', note:'Free educational book · works offline on phone and computer · © Med Titi', pres:'presents', light:"Nori's light", defName:'friend',
+    hints:{tap:'Tap the screen', tapNori:'Tap Nori', meter:"This is Nori's light… very weak", hand:"Tap Nori to hold her hand", shadows:'Tap each shadow to see what it really is', rotate:'Spin Nori with your finger, tap her to make her laugh', breath:'Tap the circle and breathe with it, 3 times', brave:'Tap the words and say them out loud', room:'Tap Nori flying in your room!', catchS:'Catch the Star of Courage!', end:'The End'},
+    printBtn:'📄 Print / save as PDF', photo:'📷 Put Nori in your real room', holoBtn:'✨ Nori hologram', certBtn:'🏅 Certificate of Courage', parentsBtn:'👨‍👩‍👧 For parents', again:'↺ Start again',
+    brave:'I am brave! I can do it!', reveal:['A cat!','A tree!','A coat!'], wow:'Wow!', thanks:'Thank you!', caught:"It's yours now!",
+    holoT:'Nori hologram', holoSteps:['Print the template, or trace it on clear plastic (a box lid or a CD case).','Cut 4 identical pieces and tape them into an upside-down pyramid.','Lay the phone flat and put the pyramid in the middle, small end down.','Turn off the lights and look from the side… Nori floats in the air!'],
+    certT:'Certificate of Courage', certLine:'Awarded to', certWhy:"for bringing Nori's light back", certSign:'Signed: Nori ⭐', certNote:'On a phone: press and hold the picture to save it.',
+    pT:'For parents', pSub:'Turn the story into a little bedtime talk:', pQ:['What was Nori scared of? What are you scared of sometimes?',"What three things brought Nori's light back? (look carefully, breathe slowly, say brave words)",'What is your own brave sentence for when you feel scared?'],
+    l1:'Story language', l2:'Second language', voiceMissing:'No English voice on this device, so read-aloud is off.'},
+  fr:{dir:'ltr', title:'{N} et Nori, la petite étoile', appTitle:'Nori', sub:'Une histoire interactive sur le courage', subPrint:'Une histoire illustrée sur le courage', lang:"Langue de l'histoire", name:'Prénom du héros ou de l’héroïne', namePh:'Écris le prénom', gender:'Le héros est', boy:'Un garçon', girl:'Une fille', bi:'Deuxième langue sous le texte (facultatif)', start:'✋ Jouer', watch:'▶ Regarder', note:'Livre éducatif gratuit · fonctionne hors ligne sur téléphone et ordinateur · © Med Titi', pres:'présente', light:'Lumière de Nori', defName:'mon ami',
+    hints:{tap:"Touche l'écran", tapNori:'Touche Nori', meter:'Voici la lumière de Nori… très faible', hand:'Touche Nori pour lui tenir la main', shadows:'Touche chaque ombre pour voir ce que c’est vraiment', rotate:'Fais tourner Nori avec ton doigt, touche-la pour la faire rire', breath:'Touche le cercle et respire avec lui, 3 fois', brave:'Touche la phrase et dis-la bien fort', room:'Touche Nori qui vole dans ta chambre !', catchS:"Attrape l'Étoile du Courage !", end:'Fin'},
+    printBtn:'📄 Imprimer / PDF', photo:'📷 Mets Nori dans ta vraie chambre', holoBtn:'✨ Nori en hologramme', certBtn:'🏅 Diplôme du Courage', parentsBtn:'👨‍👩‍👧 Pour les parents', again:'↺ Recommencer',
+    brave:'Je suis {courageux|courageuse} ! Je peux le faire !', reveal:['Un chat !','Un arbre !','Un manteau !'], wow:'Bravo !', thanks:'Merci !', caught:"Elle est à toi !",
+    holoT:'Nori en hologramme', holoSteps:['Imprime le modèle, ou recopie-le sur du plastique transparent (couvercle, boîtier de CD).','Découpe 4 pièces identiques et assemble-les avec du scotch en pyramide à l’envers.','Pose le téléphone à plat et la pyramide au centre, petit bout en bas.','Éteins la lumière et regarde de côté… Nori flotte dans les airs !'],
+    certT:'Diplôme du Courage', certLine:'Décerné à', certWhy:'pour avoir rendu sa lumière à Nori', certSign:'Signé : Nori ⭐', certNote:"Sur téléphone : appuie longtemps sur l'image pour l'enregistrer.",
+    pT:'Pour les parents', pSub:"Transformez l'histoire en petite discussion du soir :", pQ:['De quoi Nori avait-elle peur ? Et toi, de quoi as-tu peur parfois ?','Quelles sont les trois choses qui ont rendu sa lumière à Nori ? (bien regarder, respirer doucement, dire des mots courageux)','Quelle est ta phrase courageuse à toi quand tu as peur ?'],
+    l1:"Langue de l'histoire", l2:'Deuxième langue', voiceMissing:"Pas de voix française sur cet appareil : la lecture est désactivée."}
+};
+
+const PAGES = [
+ {bg:'room', nori:null, light:null, act:'twinkle', hint:'tap',
+  ar:'كانت الليلة هادئة، والسماء مليئة بالنجوم. {نظرَ|نظرتْ} {N} من النافذة {وقال|وقالت}: «تصبحين على خير يا نجوم!»',
+  en:'The night was quiet, and the sky was full of stars. {N} looked out of the window and said, "Good night, stars!"',
+  fr:'La nuit était calme, et le ciel était plein d’étoiles. {N} regarda par la fenêtre et dit : « Bonne nuit, les étoiles ! »'},
+ {bg:'fall', vid:'v1', nori:null, light:null, act:'fall', hint:'tap',
+  ar:'فجأةً… اهتزّت نجمةٌ صغيرة، ثم سقطت! ووووش! وهبطت في الحديقة، تحت الشجرة الكبيرة.',
+  en:'Suddenly… a little star wobbled, then fell! Whoooosh! It landed in the garden, under the big tree.',
+  fr:'Soudain… une petite étoile trembla, puis tomba ! Fiouuuu ! Elle atterrit dans le jardin, sous le grand arbre.'},
+ {bg:'tree', vid:'v2', nori:'scared', light:10, act:'shy', hint:'tapNori',
+  ar:'{خرجَ|خرجتْ} {N} على أطراف {أصابعه|أصابعها}. كانت هناك نجمة صغيرة، ضوؤها ضعيف، وهي ترتجف. «مرحبًا… أنا نوري. سقطتُ من السماء، وأنا خائفة.»',
+  en:'{N} tiptoed outside. There was a tiny star, her light weak, trembling. "Hello… I\'m Nori. I fell from the sky, and I\'m scared."',
+  fr:'{N} sortit sur la pointe des pieds. Il y avait là une toute petite étoile, à la lumière faible, qui tremblait. « Bonjour… Je suis Nori. Je suis tombée du ciel, et j’ai peur. »'},
+ {bg:'tree', nori:'scared', light:10, act:'meter', hint:'meter',
+  ar:'قالت نوري: «النجوم تلمع بالشجاعة. عندما خِفتُ من الريح القوية، انطفأ ضوئي… فسقطت. ولن أستطيع العودة إلى السماء إلا إذا عاد ضوئي.»',
+  en:'Nori said, "Stars shine with courage. When the strong wind scared me, my light went out… and I fell. I can only go back to the sky when my light comes back."',
+  fr:'Nori expliqua : « Les étoiles brillent grâce au courage. Quand le vent fort m’a fait peur, ma lumière s’est éteinte… et je suis tombée. Je ne pourrai remonter au ciel que si ma lumière revient. »'},
+ {bg:'tree', vid:'v3', nori:'happy', light:20, act:'hand', hint:'hand',
+  ar:'{قال|قالت} {N}: «أنا أيضًا أخاف أحيانًا… من الظلام.» ابتسمت نوري ابتسامة صغيرة: «إذن لنكن شجعانًا معًا!»',
+  en:'{N} said, "I get scared sometimes too… of the dark." Nori gave a tiny smile. "Then let\'s be brave together!"',
+  fr:'{N} dit : « Moi aussi, j’ai peur parfois… du noir. » Nori fit un petit sourire : « Alors, soyons {courageux|courageuses} ensemble ! »'},
+ {bg:'path', vid:'v4', nori:'scared', light:20, act:'shadows', hint:'shadows',
+  ar:'{مشيا|مشتا} في الحديقة المظلمة. فجأةً ظهرت ظلالٌ كبيرة! «وحش؟!» همست نوري. لكن {N} {اقتربَ ونظرَ|اقتربتْ ونظرتْ} جيدًا… «إنها قطة فقط! وشجرة! ومعطف معلّق!»',
+  en:'They walked through the dark garden. Suddenly, big shadows appeared! "A monster?!" Nori whispered. But {N} stepped closer and looked carefully… "It\'s just a cat! And a tree! And a coat on a hook!"',
+  fr:'{Ils|Elles} marchèrent dans le jardin sombre. Soudain, de grandes ombres apparurent ! « Un monstre ?! » chuchota Nori. Mais {N} s’approcha et regarda bien… « C’est juste un chat ! Et un arbre ! Et un manteau accroché ! »'},
+ {bg:'sky', vid:'v5', nori:'pop', light:50, act:'pop3d', hint:'rotate',
+  ar:'«{انظرْ|انظري}! ضوئي يعود!» صاحت نوري… وقفزت خارج الصفحة!',
+  en:'"Look! My light is coming back!" cried Nori… and she jumped right out of the page!',
+  fr:'« Regarde ! Ma lumière revient ! » s’écria Nori… et elle sauta hors de la page !'},
+ {bg:'hill', vid:'v6', nori:'happy', light:50, act:'breath', hint:'breath',
+  ar:'لكي تقترب نوري من السماء، كان عليهما أن {يصعدا|تصعدا} التل العالي. {نظرَ|نظرتْ} {N} إلى الأعلى… كان عاليًا جدًا! قالت نوري: «عندما نخاف، نتنفس ببطء. هيا معي!» شهيق… زفير… {وصعدا|وصعدتا} خطوة خطوة.',
+  en:'To get close to the sky, they had to climb the tall hill. {N} looked up… it was SO high! Nori said, "When we\'re scared, we breathe slowly. Breathe with me!" In… and out… and step by step, they climbed.',
+  fr:'Pour s’approcher du ciel, {ils|elles} devaient grimper la haute colline. {N} leva les yeux… elle était si haute ! Nori dit : « Quand on a peur, on respire doucement. Respire avec moi ! » Inspire… expire… et pas à pas, {ils|elles} grimpèrent.'},
+ {bg:'top', vid:'v7', nori:'happy', light:70, act:'brave', hint:'brave',
+  ar:'في أعلى التل، هبّت الريح: ووووو! قالت نوري: «الكلمات الشجاعة تجعلنا أقوى. {قُلها|قوليها} معي بصوت عالٍ!» فأضاءت نوري… أكثر فأكثر!',
+  en:'At the top, the wind blew: Whoooo! Nori said, "Brave words make us stronger. Say it with me, out loud!" And Nori glowed… brighter and brighter!',
+  fr:'En haut, le vent souffla : Whouuuu ! Nori dit : « Les mots courageux nous rendent plus forts. Dis-le avec moi, bien fort ! » Et Nori brilla… de plus en plus fort !'},
+ {bg:'bedroom', vid:'v8', nori:'bright', light:90, act:'room', hint:'room',
+  ar:'«قبل أن أعود إلى السماء… أريد أن أرى {غرفتكَ|غرفتكِ}!» قالت نوري.',
+  en:'"Before I go back to the sky… I want to see your room!" said Nori.',
+  fr:'« Avant de remonter au ciel… je veux voir ta chambre ! » dit Nori.'},
+ {bg:'top', vid:'v9', nori:'bright', light:100, act:'catch', hint:'catchS',
+  ar:'أصبحت نوري تلمع كشمس صغيرة! «شكرًا يا {N}! {أنتَ مَن أعاد|أنتِ مَن أعادت} إليّ ضوئي. هذه نجمة الشجاعة. كلما {خِفتَ|خِفتِ}، {تذكّرْني|تذكّريني}.» وطارت نوري عاليًا… عاليًا… إلى السماء.',
+  en:'Nori was shining like a little sun! "Thank you, {N}! You brought my light back. This is the Star of Courage. Whenever you feel scared, remember me." And Nori flew up… up… into the sky.',
+  fr:'Nori brillait comme un petit soleil ! « Merci, {N} ! C’est toi qui m’as rendu ma lumière. Voici l’Étoile du Courage. Chaque fois que tu as peur, pense à moi. » Et Nori s’envola… haut… très haut, jusqu’au ciel.'},
+ {bg:'room', nori:'far', light:100, act:'end', hint:'end',
+  ar:'في تلك الليلة، {نامَ|نامتْ} {N} {مبتسمًا|مبتسمة}، ولم يعد الظلام مخيفًا. وفي السماء، كانت نجمة صغيرة تغمز {له|لها}… النهاية.',
+  en:'That night, {N} fell asleep smiling. The dark wasn\'t scary anymore. And up in the sky, a little star winked at {him|her}… The End.',
+  fr:'Cette nuit-là, {N} s’endormit en souriant. Le noir ne faisait plus peur. Et là-haut, dans le ciel, une petite étoile {lui|lui} fit un clin d’œil… Fin.'}
+];
+
+const VOICE_LANG = {ar:'ar', en:'en', fr:'fr'};
+
+/* =========================================================
+   STATE
+   ========================================================= */
+const S = {lang:'ar', bi:'', name:'', g:'m', page:0, read:true, lite:false, watch:false, done:{}};
+const store = {
+  get(){ try{ return JSON.parse(localStorage.getItem('nori-v1')||'null'); }catch(e){ return null; } },
+  set(){ try{ localStorage.setItem('nori-v1', JSON.stringify({lang:S.lang,bi:S.bi,name:S.name,g:S.g,lite:S.lite})); }catch(e){} }
+};
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+function tpl(str, lang){
+  const name = S.name.trim() || UI[lang||S.lang].defName;
+  return str.replace(/\{([^{}|]*)\|([^{}]*)\}/g, (m,a,b)=> S.g==='f'? b : a).replace(/\{N\}/g, name);
+}
+function T(key){ return UI[S.lang][key]; }
+
+/* =========================================================
+   AUDIO (generated, no files)
+   ========================================================= */
+let AC=null;
+function ac(){ if(!AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(AC&&AC.state==='suspended') AC.resume().catch(()=>{}); return AC; }
+function tone(freq,dur=.35,type='sine',vol=.18,delay=0,slide=0){
+  const a=ac(); if(!a) return;
+  const t=a.currentTime+delay, o=a.createOscillator(), g=a.createGain();
+  o.type=type; o.frequency.setValueAtTime(freq,t); if(slide) o.frequency.exponentialRampToValueAtTime(Math.max(40,freq*slide),t+dur);
+  g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol,t+.02); g.gain.exponentialRampToValueAtTime(.001,t+dur);
+  o.connect(g).connect(a.destination); o.start(t); o.stop(t+dur+.05);
+}
+const SFX = {
+  chime(){ [1318,1760,2093].forEach((f,i)=>tone(f,.6,'sine',.12,i*.07)); },
+  twinkle(){ tone(1800+Math.random()*900,.4,'triangle',.1); },
+  whoosh(){ const a=ac(); if(!a) return; const n=a.createBufferSource(), b=a.createBuffer(1,a.sampleRate*1.2,a.sampleRate), d=b.getChannelData(0); for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*(1-i/d.length); n.buffer=b; const f=a.createBiquadFilter(); f.type='bandpass'; f.frequency.setValueAtTime(2500,a.currentTime); f.frequency.exponentialRampToValueAtTime(300,a.currentTime+1.1); const g=a.createGain(); g.gain.value=.35; n.connect(f).connect(g).connect(a.destination); n.start(); tone(1400,.9,'sine',.08,0,.3); },
+  giggle(){ [880,1040,940,1180,1000].forEach((f,i)=>tone(f,.12,'triangle',.12,i*.09,1.15)); },
+  pop(){ tone(600,.15,'sine',.2,0,2.2); },
+  magic(){ [523,659,784,1047,1319,1568].forEach((f,i)=>tone(f,.5,'sine',.1,i*.08)); },
+  wind(){ const a=ac(); if(!a) return; const n=a.createBufferSource(), b=a.createBuffer(1,a.sampleRate*2.2,a.sampleRate), d=b.getChannelData(0); for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*Math.sin(Math.PI*i/d.length); n.buffer=b; const f=a.createBiquadFilter(); f.type='lowpass'; f.frequency.value=700; const g=a.createGain(); g.gain.value=.3; n.connect(f).connect(g).connect(a.destination); n.start(); },
+  breathIn(){ tone(330,3,'sine',.06,0,1.5); }, breathOut(){ tone(495,2.5,'sine',.05,0,.66); }
+};
+
+/* =========================================================
+   SPEECH (browser voices, free)
+   ========================================================= */
+let voices=[];
+function loadVoices(){ try{ voices = speechSynthesis.getVoices()||[]; }catch(e){ voices=[]; } }
+if('speechSynthesis' in window){ loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
+function pickVoice(lang){
+  const p = VOICE_LANG[lang];
+  const list = voices.filter(v=> (v.lang||'').toLowerCase().startsWith(p));
+  const pref = list.find(v=>/natural|neural|online|premium|enhanced/i.test(v.name)) || list.find(v=>/female|zira|hoda|salma|amelie|audrey|samantha/i.test(v.name));
+  return pref || list[0] || null;
+}
+function speak(text, lang, onEnd){
+  stopSpeak();
+  if(!S.read || !('speechSynthesis' in window)){ onEnd&&onEnd(); return; }
+  const v = pickVoice(lang);
+  if(!v && voices.length){ onEnd&&onEnd(); return; }
+  try{
+    const u = new SpeechSynthesisUtterance(text.replace(/[«»"“”]/g,''));
+    u.lang = v? v.lang : ({ar:'ar-SA',en:'en-US',fr:'fr-FR'})[lang];
+    if(v) u.voice=v;
+    u.rate = lang==='ar'? .85 : .9; u.pitch = 1.08;
+    u.onboundary = e=>{ if(lang!==S.lang) return; hlWord(e.charIndex); };
+    u.onend = ()=>{ clearHl(); onEnd&&onEnd(); };
+    speechSynthesis.speak(u);
+  }catch(e){ onEnd&&onEnd(); }
+}
+function stopSpeak(){ try{ speechSynthesis.cancel(); }catch(e){} clearHl(); }
+let wordMap=[];
+function hlWord(ci){ $$('#txt .w').forEach(w=>w.classList.remove('hl')); const w = wordMap.find(x=>ci>=x.s && ci<x.e); if(w) w.el.classList.add('hl'); }
+function clearHl(){ $$('#txt .w.hl').forEach(w=>w.classList.remove('hl')); }
+
+const AUD={"ar": {"m": ["ar_m_p01", "ar_p02", "ar_m_p03", "ar_p04", "ar_m_p05", "ar_m_p06", "ar_m_p07", "ar_m_p08", "ar_m_p09", "ar_m_p10", "ar_m_p11", "ar_m_p12", "ar_m_p13"], "f": ["ar_f_p01", "ar_p02", "ar_f_p03", "ar_p04", "ar_f_p05", "ar_f_p06", "ar_f_p07", "ar_f_p08", "ar_f_p09", "ar_f_p10", "ar_f_p11", "ar_f_p12", "ar_f_p13"]}, "en": {"m": ["en_m_p01", "en_p02", "en_m_p03", "en_p04", "en_m_p05", "en_m_p06", "en_p07", "en_m_p08", "en_p09", "en_p10", "en_m_p11", "en_m_p12", "en_p13"], "f": ["en_f_p01", "en_p02", "en_f_p03", "en_p04", "en_f_p05", "en_f_p06", "en_p07", "en_f_p08", "en_p09", "en_p10", "en_f_p11", "en_f_p12", "en_p13"]}, "fr": {"m": ["fr_m_p01", "fr_p02", "fr_m_p03", "fr_p04", "fr_m_p05", "fr_m_p06", "fr_p07", "fr_m_p08", "fr_p09", "fr_p10", "fr_m_p11", "fr_m_p12", "fr_m_p13"], "f": ["fr_f_p01", "fr_p02", "fr_f_p03", "fr_p04", "fr_f_p05", "fr_f_p06", "fr_p07", "fr_f_p08", "fr_p09", "fr_p10", "fr_f_p11", "fr_f_p12", "fr_f_p13"]}};
+
+function audSrc(name){ return 'aud/'+name+'.m4a'; }
+let narrCb=null, narrSeq=0;
+function stopNarr(){ const n=$('#narr'); narrSeq++; narrCb=null; try{ n.pause(); }catch(e){} }
+/* play recorded clip k (0-based page, 12 = brave words) for a language; falls back to the device voice */
+function narrate(k, lang, onEnd, fallbackText){
+  stopSpeak(); stopNarr();
+  if(!S.read){ onEnd&&onEnd(); return; }
+  const list=AUD[lang] && AUD[lang][S.g]; const name=list && list[k];
+  if(!name){ speak(fallbackText||'', lang, onEnd); return; }
+  const n=$('#narr'), my=++narrSeq; narrCb=onEnd||null;
+  n.onended=()=>{ if(my!==narrSeq) return; const c=narrCb; narrCb=null; c&&c(); };
+  n.onerror=()=>{ if(my!==narrSeq) return; narrCb=null; speak(fallbackText||'', lang, onEnd); };
+  n.src=audSrc(name); n.muted=false;
+  const pr=n.play(); if(pr&&pr.catch) pr.catch(()=>{ if(my!==narrSeq) return; narrCb=null; speak(fallbackText||'', lang, onEnd); });
+}
+/* phones and Android apps only allow sound after a touch: unlock our media elements on the first tap */
+let mediaUnlocked=false;
+function unlockMedia(){
+  if(mediaUnlocked) return; mediaUnlocked=true;
+  const n=$('#narr'), v=$('#vidEl');
+  try{ n.muted=true; n.src=audSrc((AUD[S.lang]&&AUD[S.lang][S.g][0])||'ar_m_p01'); const a=n.play(); if(a&&a.then) a.then(()=>{ n.pause(); n.muted=false; }).catch(()=>{ n.muted=false; }); }catch(e){}
+  try{ v.muted=true; v.src='vid/v1.mp4'; const b=v.play(); if(b&&b.then) b.then(()=>{ v.pause(); v.muted=false; }).catch(()=>{ v.muted=false; }); }catch(e){}
+}
+document.addEventListener('pointerdown', unlockMedia, {once:false, capture:true});
+
+/* =========================================================
+   FX canvas: drifting stars & sparkles
+   ========================================================= */
+const fx = $('#fx'), fctx = fx.getContext('2d');
+let parts=[], fxRun=false, W=0, H=0, DPR=1;
+function sizeFx(){ DPR=Math.min(2,window.devicePixelRatio||1); W=fx.clientWidth; H=fx.clientHeight; fx.width=W*DPR; fx.height=H*DPR; fctx.setTransform(DPR,0,0,DPR,0,0); }
+window.addEventListener('resize', sizeFx);
+function addParts(n, opts={}){
+  for(let i=0;i<n;i++) parts.push({x:opts.x??Math.random()*W, y:opts.y??Math.random()*H*.7, vx:(Math.random()-.5)*(opts.sp||.3), vy:(opts.vy??-Math.random()*.2), r:Math.random()*2+.6, life:opts.life||9999, a:Math.random(), wind:opts.wind||0});
+}
+function fxLoop(){
+  if(!fxRun) return;
+  fctx.clearRect(0,0,W,H);
+  for(const p of parts){
+    p.x+=p.vx+p.wind; p.y+=p.vy; p.a+=.03; p.life--;
+    if(p.x<-10) p.x=W+10; if(p.x>W+10) p.x=-10; if(p.y<-10) p.y=H*.8;
+    const al = (.4+.6*Math.abs(Math.sin(p.a))) * Math.min(1,p.life/40);
+    fctx.beginPath(); fctx.fillStyle=`rgba(255,236,170,${al})`; fctx.shadowColor='#ffd25e'; fctx.shadowBlur=8;
+    fctx.arc(p.x,p.y,p.r,0,7); fctx.fill();
+  }
+  parts = parts.filter(p=>p.life>0);
+  requestAnimationFrame(fxLoop);
+}
+function startFx(){ if(S.lite){ fxRun=false; fctx.clearRect(0,0,W,H); return; } if(!fxRun){ fxRun=true; requestAnimationFrame(fxLoop);} }
+
+/* =========================================================
+   HELPERS for the interactive layer
+   ========================================================= */
+const layer = $('#layer');
+function sparkleAt(x,y,n=1){ for(let i=0;i<n;i++){ const s=document.createElement('div'); s.className='sparkle'; s.style.left=(x+(Math.random()-.5)*30*(n>1))+'px'; s.style.top=(y+(Math.random()-.5)*30*(n>1))+'px'; s.style.animationDelay=(i*.05)+'s'; layer.appendChild(s); setTimeout(()=>s.remove(),1000);} }
+function heartAt(x,y,ch='💛'){ const h=document.createElement('div'); h.className='heart'; h.textContent=ch; h.style.left=x+'px'; h.style.top=y+'px'; layer.appendChild(h); setTimeout(()=>h.remove(),1700); }
+function bubble(x,y,text){ const b=document.createElement('div'); b.className='bubble'; b.textContent=text; b.style.left=x+'px'; b.style.top=y+'px'; layer.appendChild(b); setTimeout(()=>b.remove(),1800); }
+function rectOf(el){ const r=el.getBoundingClientRect(); return {x:r.left+r.width/2, y:r.top+r.height/2, w:r.width, h:r.height}; }
+
+let noriEl=null;
+function makeNori(kind, pos){
+  const d=document.createElement('div'); d.className='nori'; d.innerHTML=`<img src="${IMG[kind]||IMG.happy}" alt="Nori">`;
+  if(pos){ Object.assign(d.style,pos); }
+  layer.appendChild(d); noriEl=d; applyLight(); return d;
+}
+function setNoriImg(kind){ if(noriEl) noriEl.querySelector('img').src = IMG[kind]; }
+function bounce(el,cls){ el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); setTimeout(()=>el.classList.remove(cls),1000); }
+
+let light = 10;
+function setLight(v){ if(v==null) return; light=v; $('#meterFill').style.width=v+'%'; $('#meterTxt').textContent=(innerWidth<480?'⭐ ':`⭐ ${T('light')} `)+v+'%'; $('#meter').title=T('light'); applyLight(); }
+function applyLight(){ if(!noriEl) return; const k=light/100; noriEl.style.filter=`brightness(${.55+.65*k}) saturate(${.7+.5*k}) drop-shadow(0 0 ${6+40*k}px rgba(255,210,94,${.25+.6*k}))`; }
+
+/* =========================================================
+   PAGE ACTIVITIES
+   ========================================================= */
+let pageDone=false, cleanup=[];
+function done(){
+  if(pageDone) return; pageDone=true; S.done[S.page]=true; $('#nextBtn').classList.add('pulse');
+  const p=PAGES[S.page], pg=S.page;
+  if(p.vid && VIDS_OK){
+    const t0=Date.now();
+    const tryPlay=()=>{ if(S.page!==pg) return; const n=$('#narr'); const talking=!n.paused && !n.ended;
+      let tts=false; try{ tts=speechSynthesis.speaking; }catch(e){}
+      if((talking||tts) && Date.now()-t0<25000){ later(tryPlay,300); return; }
+      playVid(p.vid, ()=>{ if(S.page===pg) go(pg+1); }); };
+    later(tryPlay, 1100);
+  }
+  else if(S.watch && S.page<PAGES.length-1){ later(()=>{ if(S.page===pg) go(pg+1); }, 1200); }
+}
+let VIDS_OK=true, vidCb=null;
+function playVid(name, cb){
+  const ov=$('#vidOv'), v=$('#vidEl'); stopSpeak(); stopNarr(); vidCb=cb;
+  v.src='vid/'+name+'.mp4'; v.currentTime=0; v.muted=false;
+  ov.classList.remove('hidden'); requestAnimationFrame(()=>ov.classList.add('show'));
+  const fin=()=>{ v.onended=null; v.onerror=null; ov.classList.remove('show'); setTimeout(()=>{ ov.classList.add('hidden'); v.pause(); v.removeAttribute('src'); v.load(); const c=vidCb; vidCb=null; c&&c(); },550); };
+  v.onended=fin; v.onerror=()=>{ VIDS_OK=false; fin(); };
+  const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{ v.muted=true; v.play().catch(()=>fin()); });
+  $('#vidSkip').onclick=fin;
+}
+function onLayer(type,fn){ layer.addEventListener(type,fn); cleanup.push(()=>layer.removeEventListener(type,fn)); }
+function later(fn,ms){ const t=setTimeout(fn,ms); cleanup.push(()=>clearTimeout(t)); }
+function every(fn,ms){ const t=setInterval(fn,ms); cleanup.push(()=>clearInterval(t)); }
+
+const ACT = {
+  twinkle(){
+    let n=0;
+    onLayer('pointerdown',e=>{ sparkleAt(e.clientX,e.clientY,4); SFX.twinkle(); addParts(6,{x:e.clientX,y:e.clientY,sp:2,vy:-1,life:60}); if(++n>=3) done(); });
+  },
+  fall(){
+    const go=()=>{
+      const s=document.createElement('div'); s.className='streak'; layer.appendChild(s);
+      const x0=W*.82,y0=H*.08,x1=W*.42,y1=H*.66, t0=performance.now();
+      SFX.whoosh();
+      const step=t=>{ const k=Math.min(1,(t-t0)/1300), e=k*k; s.style.left=(x0+(x1-x0)*e)+'px'; s.style.top=(y0+(y1-y0)*e)+'px'; if(k<1) requestAnimationFrame(step); else { sparkleAt(x1,y1,8); SFX.chime(); s.remove(); done(); } };
+      requestAnimationFrame(step);
+    };
+    later(go,900);
+    onLayer('pointerdown',e=>{ sparkleAt(e.clientX,e.clientY,3); go(); });
+  },
+  shy(){
+    const n=makeNori('scared');
+    n.addEventListener('click',()=>{ bounce(n,'shake'); SFX.giggle(); const r=rectOf(n); sparkleAt(r.x,r.y-r.h*.3,3); done(); });
+  },
+  meter(){
+    makeNori('scared');
+    $('#meter').animate([{transform:'scale(1)'},{transform:'scale(1.12)'},{transform:'scale(1)'}],{duration:900,iterations:3});
+    later(done,1500);
+  },
+  hand(){
+    const n=makeNori('happy');
+    n.addEventListener('click',()=>{ bounce(n,'jump'); SFX.chime(); const r=rectOf(n); for(let i=0;i<5;i++) setTimeout(()=>heartAt(r.x+(Math.random()-.5)*r.w,r.y,['💛','✨','💛'][i%3]),i*120); setLight(20); done(); });
+  },
+  shadows(){
+    const n=makeNori('scared',{left:'50%',top:'30%',width:'min(22vmin,170px)'});
+    const spots=[{l:'8%',t:'38%'},{l:'38%',t:'46%'},{l:'68%',t:'36%'}];
+    const reals=[catSVG(),treeSVG(),coatSVG()];
+    let found=0;
+    spots.forEach((p,i)=>{
+      const d=document.createElement('div'); d.className='shadowmon'; d.style.left=p.l; d.style.top=p.t;
+      d.innerHTML=`<svg viewBox="0 0 100 120"><g class="mon">${monsterSVG(i)}</g><g class="real">${reals[i]}</g></svg>`;
+      d.addEventListener('click',()=>{
+        if(d.classList.contains('revealed')) return;
+        d.classList.add('revealed'); SFX.pop(); const r=rectOf(d); bubble(r.x,r.y-r.h*.3,T('reveal')[i]); sparkleAt(r.x,r.y,5);
+        found++; setLight(20+found*7);
+        if(found===3){ setNoriImg('happy'); bounce(noriEl,'jump'); SFX.magic(); setLight(40); done(); }
+      });
+      layer.appendChild(d);
+    });
+  },
+  pop3d(){
+    SFX.magic();
+    const box=document.createElement('div'); box.id='pop3d';
+    const L = S.lite? 4 : 12;
+    let html='<div class="rig"><div class="glow"></div>';
+    for(let i=0;i<L;i++){ const z=(i-L/2)*2.2; const shade = i===L-1? 1 : .35+.5*(i/L); html+=`<div class="lyr" style="transform:translateZ(${z}px);filter:brightness(${shade})"><img src="${IMG.happy}" alt=""></div>`; }
+    html+='</div>'; box.innerHTML=html; layer.appendChild(box);
+    const hint=document.createElement('div'); hint.className='rot-hint'; hint.textContent='↔ ✋'; layer.appendChild(hint);
+    const rig=box.querySelector('.rig');
+    let ry=0, rx=0, vy=0, drag=false, lx=0, ly=0, moved=0, raf;
+    const tick=()=>{ if(!drag){ ry+=vy; vy*=.96; if(Math.abs(vy)<.15) ry+=.25; rx*=.95; } rig.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg)`; raf=requestAnimationFrame(tick); };
+    raf=requestAnimationFrame(tick); cleanup.push(()=>cancelAnimationFrame(raf));
+    box.addEventListener('pointerdown',e=>{ drag=true; moved=0; lx=e.clientX; ly=e.clientY; box.setPointerCapture(e.pointerId); });
+    box.addEventListener('pointermove',e=>{ if(!drag) return; const dx=e.clientX-lx, dy=e.clientY-ly; moved+=Math.abs(dx)+Math.abs(dy); ry+=dx*.6; rx=Math.max(-30,Math.min(30,rx-dy*.3)); vy=dx*.3; lx=e.clientX; ly=e.clientY; if(moved>60) done(); });
+    box.addEventListener('pointerup',e=>{ drag=false; if(moved<8){ vy=18; SFX.giggle(); const r=rectOf(box); sparkleAt(r.x,r.y,6); bubble(r.x,r.y-r.h*.35,({ar:'هيهيهي!',en:'Hee hee!',fr:'Hi hi hi !'})[S.lang]); done(); } });
+  },
+  breath(){
+    const n=makeNori('happy',{top:'26%',width:'min(20vmin,150px)'});
+    const steps=document.createElement('div'); steps.className='steps'; steps.innerHTML='<i></i><i></i><i></i>'; layer.appendChild(steps);
+    const b=document.createElement('div'); b.className='breath'; b.innerHTML=`<div class="ring"></div><b>🫁</b><small></small>`; layer.appendChild(b);
+    const lab=b.querySelector('small'); const L={ar:['المس الدائرة','شهيق…','زفير…','أحسنت!'],en:['Tap the circle','Breathe in…','Breathe out…','Well done!'],fr:['Touche le cercle','Inspire…','Expire…','Bravo !']}[S.lang];
+    lab.textContent=L[0];
+    let count=0, busy=false;
+    b.addEventListener('click',()=>{
+      if(busy||count>=3) return; busy=true;
+      b.classList.add('in'); lab.textContent=L[1]; SFX.breathIn();
+      later(()=>{ b.classList.remove('in'); lab.textContent=L[2]; SFX.breathOut(); },3000);
+      later(()=>{ busy=false; count++; steps.children[count-1].classList.add('on'); setLight(50+count*7); bounce(n,'jump');
+        if(count===3){ lab.textContent=L[3]; SFX.magic(); done(); } else lab.textContent=L[0]; },6000);
+    });
+  },
+  brave(){
+    makeNori('happy',{top:'52%'});
+    SFX.wind(); every(()=>{ if(!S.lite) addParts(8,{x:-5,y:Math.random()*H*.8,sp:.2,vy:0,wind:5,life:90}); },400);
+    const btn=document.createElement('button'); btn.className='brave'; btn.textContent=tpl(T('brave')); layer.appendChild(btn);
+    let n=0;
+    btn.addEventListener('click',()=>{ n++; narrate(12, S.lang, null, tpl(T('brave'))); SFX.chime(); const r=rectOf(noriEl); sparkleAt(r.x,r.y,8); bounce(noriEl,'jump'); setLight(Math.min(90,70+n*7)); if(n>=2){ setNoriImg('bright'); done(); } });
+  },
+  room(){
+    const n=makeNori('bright',{width:'min(24vmin,180px)'});
+    let a=0, raf; const fly=()=>{ a+=.012; n.style.left=(50+28*Math.sin(a))+'%'; n.style.top=(42+14*Math.sin(a*2))+'%'; raf=requestAnimationFrame(fly); };
+    n.style.transition='filter .8s'; raf=requestAnimationFrame(fly); cleanup.push(()=>cancelAnimationFrame(raf));
+    n.addEventListener('click',()=>{ SFX.giggle(); const r=rectOf(n); sparkleAt(r.x,r.y,5); done(); });
+
+  },
+  catch(){
+    const n=makeNori('bright',{top:'34%'});
+    const s=document.createElement('div'); s.className='catchstar'; s.innerHTML=starSVG(); layer.appendChild(s);
+    const mv=()=>{ s.style.left=(10+Math.random()*75)+'%'; s.style.top=(18+Math.random()*40)+'%'; };
+    mv(); every(mv,1500);
+    s.addEventListener('click',()=>{
+      SFX.magic(); const r=rectOf(s); sparkleAt(r.x,r.y,10); bubble(r.x,r.y,T('caught')); s.remove();
+      later(()=>{ n.style.top='-20%'; n.style.width='min(10vmin,70px)'; SFX.whoosh(); },900);
+      later(done,1800);
+    });
+  },
+  end(){
+    const n=makeNori('bright',{left:'72%',top:'18%',width:'min(12vmin,90px)'});
+    every(()=>{ bounce(n,'jump'); },2600);
+    n.addEventListener('click',()=>{ SFX.chime(); bounce(n,'spin'); });
+    const box=document.createElement('div'); box.className='endgrid';
+    [['holoBtn',openHolo],['certBtn',openCert],['parentsBtn',openParents]].concat(window.self===window.top?[['printBtn',printBook]]:[]).concat([['again',()=>go(0)]]).forEach(([k,fn])=>{ const b=document.createElement('button'); b.className='big endbtn'; b.textContent=T(k); b.addEventListener('click',fn); box.appendChild(b); });
+    layer.appendChild(box);
+    done();
+  }
+};
+
+/* little vector props for the shadow game */
+function monsterSVG(i){
+  const shapes=[
+    '<path d="M10 115 C5 70 15 25 50 20 C85 25 95 70 90 115 L75 100 L62 115 L50 100 L38 115 L25 100 Z" fill="#05030f" opacity=".92"/><circle cx="38" cy="55" r="7" fill="#ffd25e" opacity=".85"/><circle cx="62" cy="55" r="7" fill="#ffd25e" opacity=".85"/>',
+    '<path d="M50 5 L65 30 L95 25 L80 55 L100 80 L70 85 L60 115 L40 115 L30 85 L0 80 L20 55 L5 25 L35 30 Z" fill="#05030f" opacity=".92"/><circle cx="40" cy="50" r="6" fill="#ffd25e" opacity=".85"/><circle cx="60" cy="50" r="6" fill="#ffd25e" opacity=".85"/>',
+    '<path d="M20 115 L15 50 C15 20 30 8 50 8 C70 8 85 20 85 50 L80 115 L65 95 L50 115 L35 95 Z" fill="#05030f" opacity=".92"/><path d="M15 50 L0 75 M85 50 L100 75" stroke="#05030f" stroke-width="8"/><circle cx="40" cy="40" r="6" fill="#ffd25e" opacity=".85"/><circle cx="60" cy="40" r="6" fill="#ffd25e" opacity=".85"/>'
+  ]; return shapes[i];
+}
+function catSVG(){ return '<g fill="#3d3570" stroke="#ffe7a8" stroke-width="2"><path d="M30 115 C25 85 30 60 50 58 C70 60 75 85 70 115 Z"/><path d="M35 62 L33 38 L45 50 L55 50 L67 38 L65 62 Z"/></g><circle cx="44" cy="54" r="3" fill="#ffd25e"/><circle cx="56" cy="54" r="3" fill="#ffd25e"/><path d="M70 110 C90 110 92 90 82 88" stroke="#ffe7a8" stroke-width="4" fill="none"/>'; }
+function treeSVG(){ return '<rect x="44" y="70" width="12" height="45" rx="3" fill="#6b4a2b" stroke="#ffe7a8" stroke-width="2"/><circle cx="50" cy="50" r="30" fill="#2f6b4f" stroke="#ffe7a8" stroke-width="2"/><circle cx="34" cy="62" r="16" fill="#2f6b4f"/><circle cx="66" cy="62" r="16" fill="#2f6b4f"/>'; }
+function coatSVG(){ return '<circle cx="50" cy="12" r="5" fill="none" stroke="#ffe7a8" stroke-width="3"/><path d="M50 17 L50 24" stroke="#ffe7a8" stroke-width="3"/><path d="M30 30 L50 24 L70 30 L80 105 L60 105 L50 60 L40 105 L20 105 Z" fill="#8b3a4a" stroke="#ffe7a8" stroke-width="2"/><circle cx="50" cy="45" r="2.5" fill="#ffd25e"/><circle cx="50" cy="55" r="2.5" fill="#ffd25e"/>'; }
+function starSVG(){ return '<svg viewBox="0 0 100 100"><path d="M50 5 L61 38 L96 38 L68 59 L79 93 L50 72 L21 93 L32 59 L4 38 L39 38 Z" fill="#ffe58a" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg>'; }
+
+/* =========================================================
+   RENDER PAGE
+   ========================================================= */
+let bgFront='bgA';
+function setBg(key){
+  const src=IMG[key]; const cur=$('#'+bgFront);
+  if(cur.getAttribute('src')===src) return;
+  const nextId = bgFront==='bgA'?'bgB':'bgA', nx=$('#'+nextId);
+  nx.onload=()=>{ nx.classList.remove('out'); cur.classList.add('out'); bgFront=nextId; };
+  nx.src=src; if(nx.complete) nx.onload();
+}
+function renderText(){
+  const p=PAGES[S.page]; const txt=tpl(p[S.lang]);
+  // word spans for highlight while reading
+  const box=$('#txt'); box.innerHTML=''; wordMap=[]; let pos=0;
+  txt.split(/(\s+)/).forEach(tok=>{ if(/^\s+$/.test(tok)){ box.appendChild(document.createTextNode(tok)); pos+=tok.length; return; } if(!tok) return; const sp=document.createElement('span'); sp.className='w'; sp.textContent=tok; box.appendChild(sp); wordMap.push({s:pos,e:pos+tok.length,el:sp}); pos+=tok.length; });
+  box.dir = UI[S.lang].dir;
+  const t2=$('#txt2');
+  if(S.bi && S.bi!==S.lang){ t2.classList.remove('hidden'); t2.textContent=tpl(p[S.bi], S.bi); t2.dir=UI[S.bi].dir; } else t2.classList.add('hidden');
+  $('#hint').textContent = p.hint? '👆 '+T('hints')[p.hint] : '';
+  if(p.hint==='end') $('#hint').textContent='⭐ '+T('hints').end+' ⭐';
+}
+function go(i){
+  if(i<0||i>=PAGES.length) return;
+  stopNarr();
+  cleanup.forEach(f=>{try{f()}catch(e){}}); cleanup=[]; layer.innerHTML=''; noriEl=null; pageDone=false;
+  $('#roomPhoto')?.remove();
+  S.page=i; const p=PAGES[i];
+  setBg(p.bg);
+  if(p.light!=null){ $('#meter').style.opacity=1; setLight(p.light); } else { $('#meter').style.opacity=0; }
+  renderText();
+  $('#prevBtn').disabled = i===0; $('#nextBtn').disabled = i===PAGES.length-1; $('#nextBtn').classList.remove('pulse');
+  $('#dots').innerHTML = PAGES.map((_,k)=>`<i class="${k===i?'on':''}"></i>`).join('');
+  parts=[]; if(!S.lite) addParts(['room','sky','top'].includes(p.bg)?40:22);
+  (ACT[p.act]||(()=>{}))();
+  const autoFinish=()=>{ if(S.watch && S.page===i) later(()=>done(), 900); };
+  const read = ()=> narrate(i, S.lang, ()=>{ if(S.bi && S.bi!==S.lang) narrate(i, S.bi, autoFinish, tpl(p[S.bi],S.bi)); else autoFinish(); }, tpl(p[S.lang]));
+  if(S.watch && !S.read) later(()=>done(), 7000);
+  setTimeout(read, 450);
+}
+
+/* page turning: buttons, keys, swipe */
+function next(){ ac(); go(S.page+1); }
+function prev(){ ac(); go(S.page-1); }
+$('#nextBtn').addEventListener('click',next);
+$('#prevBtn').addEventListener('click',prev);
+document.addEventListener('keydown',e=>{ if($('#book').classList.contains('hidden')) return; const rtl=S.lang==='ar'; if(e.key==='ArrowRight') rtl?prev():next(); if(e.key==='ArrowLeft') rtl?next():prev(); });
+let sx=null, sy=null;
+$('#panel').addEventListener('pointerdown',e=>{sx=e.clientX; sy=e.clientY;});
+$('#panel').addEventListener('pointerup',e=>{ if(sx==null) return; const dx=e.clientX-sx, dy=e.clientY-sy; sx=null; if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)){ const fwd = S.lang==='ar'? dx>0 : dx<0; fwd? next():prev(); } });
+
+/* parallax on pointer */
+$('#stage').addEventListener('pointermove',e=>{ if(S.lite) return; const kx=(e.clientX/innerWidth-.5), ky=(e.clientY/innerHeight-.5); $('#'+bgFront).style.transform=`translate(${-kx*18}px,${-ky*12}px) scale(1.02)`; });
+
+/* top buttons */
+$('#homeBtn').addEventListener('click',()=>{ stopSpeak(); stopNarr(); vidCb=null; $('#vidEl').pause(); $('#vidOv').classList.add('hidden'); show('setup'); });
+$('#readBtn').addEventListener('click',()=>{ S.read=!S.read; $('#readBtn').classList.toggle('on',S.read); $('#readBtn').textContent=S.read?'🔊':'🔈'; if(!S.read){ stopSpeak(); stopNarr(); } else narrate(S.page, S.lang, null, tpl(PAGES[S.page][S.lang])); });
+$('#liteBtn').addEventListener('click',()=>{ S.lite=!S.lite; applyLite(); store.set(); go(S.page); });
+$('#langBtn').addEventListener('click',()=>{ syncSegs(); $('#langOv').classList.remove('hidden'); });
+function applyLite(){ document.body.classList.toggle('lite',S.lite); $('#liteBtn').classList.toggle('on',S.lite); startFx(); }
+
+/* room photo (file input works even where camera API is blocked) */
+$('#roomFile').addEventListener('change',e=>{
+  const f=e.target.files&&e.target.files[0]; if(!f) return;
+  const url=URL.createObjectURL(f); let im=$('#roomPhoto');
+  if(!im){ im=document.createElement('img'); im.id='roomPhoto'; $('#stage').insertBefore(im,$('#fx')); }
+  im.src=url; SFX.magic(); const t=$('#hint'); t.textContent='✨ '+T('hints').room; done(); e.target.value='';
+});
+
+/* =========================================================
+   SETUP SCREEN
+   ========================================================= */
+function show(id){ ['setup','book'].forEach(x=>$('#'+x).classList.toggle('hidden',x!==id)); }
+function paintSetup(){
+  const u=UI[S.lang]; document.documentElement.lang=S.lang; document.documentElement.dir=u.dir;
+  $('#sTitle').textContent = S.name.trim()? tpl(u.title) : u.appTitle;
+  $('#sSub').textContent=u.sub; $('#lLang').textContent=u.lang; $('#lName').textContent=u.name; $('#nameIn').placeholder=u.namePh;
+  $('#lGender').textContent=u.gender; $('#genSeg').children[0].textContent='👦 '+u.boy; $('#genSeg').children[1].textContent='👧 '+u.girl;
+  $('#lBi').textContent=u.bi; $('#startBtn').textContent=u.start; $('#watchBtn').textContent=u.watch; $('#sNote').textContent=u.note; $('#sPres').textContent=u.pres;
+  $('#loL1').textContent=u.l1; $('#loL2').textContent=u.l2;
+  syncSegs();
+}
+function syncSegs(){
+  $$('#langSeg button,#loSeg1 button').forEach(b=>b.classList.toggle('on',b.dataset.l===S.lang));
+  $$('#genSeg button').forEach(b=>b.classList.toggle('on',b.dataset.g===S.g));
+  $$('#biSeg button,#loSeg2 button').forEach(b=>{ b.classList.toggle('on',b.dataset.b===S.bi); b.disabled = b.dataset.b===S.lang; b.style.opacity = b.dataset.b===S.lang? .3 : 1; });
+}
+$$('#langSeg button,#loSeg1 button').forEach(b=>b.addEventListener('click',()=>{ S.lang=b.dataset.l; if(S.bi===S.lang) S.bi=''; paintSetup(); store.set(); if(!$('#book').classList.contains('hidden')) go(S.page); }));
+$$('#biSeg button,#loSeg2 button').forEach(b=>b.addEventListener('click',()=>{ S.bi=b.dataset.b; syncSegs(); store.set(); if(!$('#book').classList.contains('hidden')) renderText(); }));
+$$('#genSeg button').forEach(b=>b.addEventListener('click',()=>{ S.g=b.dataset.g; syncSegs(); store.set(); }));
+$('#nameIn').addEventListener('input',e=>{ S.name=e.target.value; paintSetup(); });
+$('#watchBtn').addEventListener('click',()=>{ S.watch=true; S.read=true; startBook(); });
+$('#startBtn').addEventListener('click',()=>{ S.watch=false; startBook(); });
+function startBook(){
+  ac(); SFX.magic(); store.set(); show('book'); sizeFx(); startFx(); go(0);
+  unlockMedia();
+}
+function toast(msg){ const t=$('#hint'); t.textContent=msg; }
+
+/* =========================================================
+   OVERLAYS
+   ========================================================= */
+$$('[data-close]').forEach(b=>b.addEventListener('click',()=>{ $('#'+b.dataset.close).classList.add('hidden'); if(b.dataset.close==='holo'){ holoRun=false; if(window.__hv){ window.__hv.pause(); window.__hv=null; } } }));
+
+/* ---- Hologram: 4 views for a phone pyramid (Pepper's ghost) ---- */
+let holoRun=false; const holoImg=new Image(); holoImg.src=IMG.bright;
+function openHolo(){
+  stopSpeak(); stopNarr(); $('#holo').classList.remove('hidden'); holoRun=true;
+  const hv=document.createElement('video'); hv.src='vid/v10.mp4'; hv.loop=true; hv.muted=true; hv.playsInline=true; hv.play().catch(()=>{}); window.__hv=hv;
+  const c=$('#holoCanvas'), x=c.getContext('2d'); const D=Math.min(2,devicePixelRatio||1);
+  const sz=Math.min(innerWidth,innerHeight); c.width=sz*D; c.height=sz*D; c.style.width=sz+'px'; c.style.height=sz+'px';
+  let t=0; const sp=[...Array(30)].map(()=>({a:Math.random()*6.28,r:Math.random(),s:Math.random()*2+1}));
+  const draw=()=>{
+    if(!holoRun) return; t+=.016;
+    x.setTransform(1,0,0,1,0,0); x.fillStyle='#000'; x.fillRect(0,0,c.width,c.height);
+    const cx=c.width/2, cy=c.height/2, s=c.width*.24;
+    for(let k=0;k<4;k++){
+      x.save(); x.translate(cx,cy); x.rotate(k*Math.PI/2);
+      // each view sits on one side, head pointing outward (away from centre)
+      const off=c.width*.31 + Math.sin(t*1.6)*c.width*.012;
+      x.translate(0, off); x.rotate(Math.PI); // flip so the top of Nori points outward
+      x.globalCompositeOperation='lighter';
+      const wob=Math.sin(t*2)*.08; x.rotate(wob);
+      if(hv.readyState>=2 && hv.videoWidth){ const vh=hv.videoHeight, sq=vh*.9; x.drawImage(hv,(hv.videoWidth-sq)/2,(vh-sq)/2,sq,sq,-s*.65,-s*.65,s*1.3,s*1.3); }
+      else if(holoImg.complete) x.drawImage(holoImg,-s/2,-s/2,s,s);
+      sp.forEach(p=>{ const rr=s*(.35+.25*p.r), aa=p.a+t*p.s*.3; x.fillStyle=`rgba(255,230,150,${.4+.4*Math.sin(t*3+p.a)})`; x.beginPath(); x.arc(Math.cos(aa)*rr,Math.sin(aa)*rr,p.s*D,0,7); x.fill(); });
+      x.restore();
+    }
+    requestAnimationFrame(draw);
+  };
+  requestAnimationFrame(draw); SFX.magic();
+}
+$('#holoHow').addEventListener('click',()=>{
+  $('#hhT').textContent=T('holoT'); $('#hhSteps').innerHTML=T('holoSteps').map(s=>`<li>${s}</li>`).join('');
+  $('#tplBox').innerHTML=`<svg viewBox="0 0 80 46"><polygon points="5,42 75,42 47.5,4 32.5,4" fill="none" stroke="#222" stroke-width=".6" stroke-dasharray="2 1"/><text x="40" y="45.5" font-size="3" text-anchor="middle" fill="#333">6 cm</text><text x="40" y="3" font-size="3" text-anchor="middle" fill="#333">1 cm</text><text x="78" y="24" font-size="3" text-anchor="end" fill="#333">3.5 cm</text><text x="40" y="26" font-size="5" text-anchor="middle" fill="#bbb">×4</text></svg>`;
+  $('#holoHelp').classList.remove('hidden');
+});
+
+/* ---- Certificate rendered to an image (long-press to save) ---- */
+function makeCertDataURL(type){
+  const c=document.createElement('canvas'); c.width=1400; c.height=990; const x=c.getContext('2d');
+  const g=x.createLinearGradient(0,0,0,990); g.addColorStop(0,'#1b1660'); g.addColorStop(1,'#0d0b2a'); x.fillStyle=g; x.fillRect(0,0,1400,990);
+  for(let i=0;i<160;i++){ x.fillStyle=`rgba(255,236,170,${Math.random()*.8})`; x.beginPath(); x.arc(Math.random()*1400,Math.random()*990,Math.random()*2.4,0,7); x.fill(); }
+  x.strokeStyle='#ffd25e'; x.lineWidth=10; x.strokeRect(40,40,1320,910); x.lineWidth=2; x.strokeRect(62,62,1276,866);
+  const u=UI[S.lang]; const font=`'Baloo Bhaijaan 2', Tahoma, sans-serif`;
+  x.textAlign='center'; x.direction=u.dir;
+  x.fillStyle='#ffd25e'; x.font=`800 92px ${font}`; x.fillText(u.certT,700,200);
+  x.fillStyle='#fff'; x.font=`600 44px ${font}`; x.fillText(u.certLine,700,300);
+  x.fillStyle='#ffe58a'; x.font=`800 120px ${font}`; x.fillText(S.name.trim()||u.defName,700,440);
+  x.fillStyle='#fff'; x.font=`600 46px ${font}`; x.fillText(tpl(u.certWhy),700,540);
+  if(holoImg.complete){ x.globalCompositeOperation='lighter'; x.drawImage(holoImg,560,580,280,280); x.globalCompositeOperation='source-over'; }
+  x.fillStyle='#ffd25e'; x.font=`700 40px ${font}`; x.fillText(u.certSign,700,900);
+  x.direction='ltr'; x.textAlign='right'; x.fillStyle='rgba(255,255,255,.75)'; x.font=`800 26px ${font}`; x.fillText('✦  M E D   T I T I',1300,915);
+  return c.toDataURL(type||'image/png', .9);
+}
+function openCert(){
+  stopSpeak(); stopNarr(); const u=UI[S.lang];
+  $('#certImg').src=makeCertDataURL(); $('#cT').textContent=u.certT; $('#cNote').textContent=u.certNote;
+  $('#cert').classList.remove('hidden'); SFX.magic();
+}
+function openParents(){
+  stopSpeak(); stopNarr(); const u=UI[S.lang];
+  $('#pT').textContent=u.pT; $('#pSub').textContent=u.pSub; $('#pQ').innerHTML=u.pQ.map(q=>`<li>${q}</li>`).join(''); $('#pCert').textContent=u.certBtn;
+  $('#parents').dir=u.dir; $('#parents').classList.remove('hidden');
+}
+$('#pCert').addEventListener('click',()=>{ $('#parents').classList.add('hidden'); openCert(); });
+
+
+/* =========================================================
+   PRINT / PDF version (same pages, static)
+   ========================================================= */
+const PRINT_NORI = [null,null,
+  {k:'scared',l:44,t:52,w:40},{k:'scared',l:44,t:50,w:40},{k:'happy',l:43,t:46,w:46},{k:'scared',l:46,t:22,w:34},
+  {k:'happy',l:40,t:22,w:62},{k:'happy',l:56,t:22,w:40},{k:'bright',l:44,t:30,w:52},{k:'bright',l:52,t:40,w:44},
+  {k:'bright',l:44,t:16,w:56},{k:'bright',l:68,t:8,w:24}];
+function buildPrint(){
+  const u=UI[S.lang], box=$('#print'); box.dir=u.dir; box.lang=S.lang; box.classList.toggle('tri',!!S.bi2);
+  const esc=t=>t.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]);
+  const owner={ar:'هذا الكتاب لـ:',en:'This book belongs to:',fr:'Ce livre appartient à :'}[S.lang];
+  let h=`<section class="pp pcover"><img class="cimg" src="img/print/cover.jpg" alt=""><div class="cside"><span class="pbadge">✦ MED TITI</span><h1>${esc(tpl(u.title))}</h1><div class="csub">${esc(u.subPrint||u.sub)}</div>${S.bi2?`<div class="csub2">${esc(tpl(UI[S.bi].title,S.bi))}<br>${esc(tpl(UI[S.bi2].title,S.bi2))}</div>`:''}<div class="cowner">${owner} ${esc(S.printOwner?S.name.trim():'')}&nbsp;</div></div></section>`;
+  PAGES.forEach((p,i)=>{
+    const n=PRINT_NORI[i];
+    h+=`<section class="pp"><img class="pimg" src="${IMG[p.bg].replace('img/','img/print/').replace('.webp','.jpg')}" alt="">`;
+    if(n) h+=`<img class="pnori" src="${IMG[n.k]}" style="left:${n.l}%;top:${n.t}mm;width:${n.w}mm;${n.k==='scared'?'opacity:.85':''}" alt="">`;
+    h+=`<div class="ptxt" dir="${u.dir}">${esc(tpl(p[S.lang]))}${S.bi&&S.bi!==S.lang?`<div class="ptxt2" dir="${UI[S.bi].dir}">${esc(tpl(p[S.bi],S.bi))}</div>`:''}${S.bi2?`<div class="ptxt2" dir="${UI[S.bi2].dir}">${esc(tpl(p[S.bi2],S.bi2))}</div>`:''}</div><span class="pbrand">✦ MED TITI</span><span class="pnum">${i+1}</span></section>`;
+  });
+  h+=`<section class="pp"><div class="pend"><div class="col"><h2>${esc(u.pT)}</h2><p>${esc(u.pSub)}</p><ol>${u.pQ.map(q=>`<li>${esc(q)}</li>`).join('')}</ol></div><div class="col"><img id="printCert" alt=""></div></div><span class="pbrand">✦ MED TITI</span></section>`;
+  box.innerHTML=h;
+  $('#printCert').src = makeCertDataURL('image/jpeg');
+}
+function printBook(){ stopSpeak(); stopNarr(); S.printOwner=true; buildPrint(); S.printOwner=false; setTimeout(()=>{ try{ window.print(); }catch(e){} },400); }
+
+/* =========================================================
+   BOOT
+   ========================================================= */
+document.addEventListener('contextmenu',e=>{ if(!e.target.closest('#certImg')) e.preventDefault(); });
+document.addEventListener('dragstart',e=>e.preventDefault());
+(function boot(){
+  const saved=store.get(); if(saved) Object.assign(S,saved);
+  else { const nl=(navigator.language||'ar').slice(0,2); if(UI[nl]) S.lang=nl; }
+  if(saved==null){ const weak=(navigator.hardwareConcurrency||4)<=2 || (navigator.deviceMemory&&navigator.deviceMemory<=2) || matchMedia('(prefers-reduced-motion: reduce)').matches; S.lite=!!weak; }
+  $('#nameIn').value=S.name; applyLite(); paintSetup();
+  // preload images
+  Object.values(IMG).forEach(src=>{ const i=new Image(); i.src=src; });
+})();
+</script>
+</body>
+</html>
